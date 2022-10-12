@@ -1,8 +1,9 @@
 import lombok.Cleanup;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileWriter;
-
+@Slf4j
 public class Main {
 
     public static void main(String[] args) {
@@ -16,6 +17,15 @@ public class Main {
                 .isGovernment(false)
                 .build();
         System.out.println(phoneDto);
+        logging();
+    }
+
+    public static void logging(){
+        log.error("Критическая ошибка системы");
+        log.info("Информация по клиенту: \"Петров Иван Иванович, сумма на счете 1_000_000 рублей\"");
+        log.trace("Обращение в интеграцию сервиса \"Мой Мир\"");
+        log.warn("Клиент не найден, операция не может быть обработана");
+        log.debug("Значение переменной firstLevel");
     }
 
     public static void runExceptions() throws Exception {
